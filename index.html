@@ -1,0 +1,12 @@
+---
+layout:default
+title:My Posts
+---
+
+<h2>{{ Latest posts }}</h2>
+<ul>
+	{% for post in site.posts %}
+		<li><a href="{{ site.baseurl }}{{ post.title }}">{{post.title}}</a>{{post.date|date_to_string}}</li>
+	{% endfor %}
+<ul>
+
