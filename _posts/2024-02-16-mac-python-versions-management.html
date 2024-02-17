@@ -1,0 +1,60 @@
+---
+layout: center
+title: Install multiple Python on Mac - pyenv
+---
+<style>
+    .whitespace {
+        height: 40px;
+    }
+</style>
+
+<h2>Different tools to manage Python versions</h2>
+<code>venv</code>, <code>pyenv</code>, <code>virtualenv</code> and <code>pipenv</code> are all tools used for managing Python environments, but they serve different purposes and have some distinct features.
+Here's a brief overview of each:
+
+<ul>venv:
+<li>module in Python 3 that allows you to create lightweight virtual environments.</li>
+<li>provides a way to create isolated Python environments with their own Python interpreter and installed packages.</li>
+<li>recommended for creating Python 3 virtual environments.</li>
+</ul>
+<ul>pyenv:
+<li>third-party tool used for managing multiple Python versions on your system.</li>
+<li>allows you to easily switch between different Python versions and set the global Python version or project-specific Python versions.</li>
+<li>useful when you need to work with multiple Python versions simultaneously.</li>
+</ul>
+<ul>3. virtualenv:
+<li>third-party package that allows you to create isolated Python environments.</li>
+<li>works with both Python 2 and Python 3 and is compatible with older versions of Python.</li>
+<li>provides more advanced features compared to <code>venv</code>, such as the ability to clone an existing environment or create environments with specific Python versions.</li>
+</ul>
+<ul>4. pipenv:
+<li>higher-level tool that combines <code>pip</code> package management and virtualenv functionality.</li>
+<li>aims to simplify dependency management and provide an easier workflow for Python projects.</li>
+<li>automatically creates and manages virtual environments and tracks package dependencies in a Pipfile and Pipfile.lock file.</li>
+<li>integrates package installation, dependency resolution, and environment creation into a single tool.</li>
+</ul>
+
+<h2>Use `pyenv` to manage Python versions on Mac</h2>
+<ul>
+<li>install pyenv and its dependencies:</li>
+<kbd>brew install pyenv</kbd>
+<li>list all of the availble Python versions you can install:</li>
+<kbd>pyenv install --list</kbd>
+<li>to install specific version:</li>
+<kbd>pyenv install [VERSION]</kbd>
+<div class="whitespace"></div>
+<li>Set the global Python version:</li>
+<kbd>pyenv global [VERSION]</kbd>
+<li>Set an application-specific Python version:</li>
+<kbd>pyenv local [VERSION]</kbd>
+</br>This command creates a .python-version file in your current directory. If you have pyenv active in your environment, this file will automatically activate this version for you.
+<div class="whitespace"></div>
+<li>Create a virtual enviroment:</li>
+<kbd>brew install pyenv-virtualenv</br>pyenv virtualenv [VERSION] [ENV_NAME]</kbd>
+</br>This will create a new virtual environment in <kbd>~/.pyenv/versions/[ENV_NAME]</kbd>.
+<li>Activate the virtual enviroment:</li>
+<kbd>pyenv activate [ENV_NAME]</br>pyenv deactivate</kbd>
+</br>This will activate/deactivate the virtual env and make it the default Python environment for your terminal session. 
+
+
+</ul>
