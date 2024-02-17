@@ -1,0 +1,79 @@
+---
+layout: default
+title: "Carousel with dots"
+---
+<style>
+    .cards-container {
+        white-space: nowrap;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+    }
+    .cards-container::-webkit-scrollbar {
+        display: none;
+    }
+    .card {
+        width: 800px;
+        height: 1000px;
+        display: inline-block;
+        margin: 20px;
+
+        text-align: center;
+        font-size: 40px;
+        background-color: aquamarine;
+        overflow: hidden;
+    }
+    .dots-container {
+        text-align: center;
+    }
+    .dot {
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        border: 1px black solid;
+    }
+    .dot.active {
+        background-color: red;
+    }
+</style>
+<div class="main-container">
+    <h1>horizontal carousel on mobile</h1>
+    <div>
+        This is test text for the body. The content does not make any sense. just for testing if the other sections will be expended when the carousel cards were scrolled. 
+    </div>
+    <div class="cards-container">
+        <div class="card">Card0</div>
+        <div class="card">Card1</div>
+        <div class="card">Card2</div>
+        <div class="card">Card3</div>
+        <div class="card">Card4</div>
+    </div>
+    <div class="dots-container">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+    <div>
+        This is another test text for the body. The content does not make any sense. just for testing if the other sections will be expended when the carousel cards were scrolled. 
+    </div>
+</div>
+<script>
+    var container = document.getElementsByClassName("cards-container")[0];
+    var dotContainer = document.getElementsByClassName("dots-container")[0];
+
+    container.addEventListener("scroll", function(e){
+        console.log('scrollX');
+        var totalWidth = container.scrollWidth;
+        var scrollProgress = container.scrollLeft + window.outerWidth / 2;
+        var index = parseInt(parseFloat(scrollProgress / totalWidth) * 5);
+        var dots = dotContainer.querySelectorAll(".dot");
+        dots.forEach(function(d){
+            d.classList.remove("active");
+        })
+        dots[index].classList.add("active");
+    })
+</script>
