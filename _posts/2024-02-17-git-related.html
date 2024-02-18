@@ -1,0 +1,22 @@
+---
+layout: center
+title: Git related
+---
+
+<h2>Update email for existing commits</h2>
+make sure you update the desired email at this time:
+<kbd>git config user.email</kbd>
+update the email for the latest commit:
+<kbd>git commit --amend --reset-author</kbd>
+update the email for previous commits:
+<kbd>git rebase -i HEAD~10</kbd>
+choose `e`/`edit` to the targeted commits, then run 
+<kbd>git commit --amend --reset-author</kbd>,
+<kbd>git rebase --continue</kbd>
+
+use `-f` to force push the new branch to the origin.
+
+
+
+
+
